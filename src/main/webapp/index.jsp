@@ -1,5 +1,7 @@
 <html>
+<head>
+    <title>HTTP Response Example</title> </head>
 <body>
-<h2>Hello World!</h2>
+Welcome to Brainy Software
 </body>
 </html>
