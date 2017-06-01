@@ -1,5 +1,7 @@
 package servlet;
 
+import org.apache.ibatis.io.Resources;
+
 import java.io.*;
 
 /**
@@ -12,6 +14,8 @@ public class Servlet001 extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String clientName=request.getParameter("clientName");
+
+
         if(clientName!=null){
             clientName=new String(clientName.getBytes("ISO-8859-1"),"GB2312");
         }else {
@@ -26,6 +30,7 @@ public class Servlet001 extends javax.servlet.http.HttpServlet {
         out.print("<HTML><HEAD><TITLE>"+title+"</TITLE>");
         out.print("</HEAD><BODY>");
         out.print(heading1);
+
         out.println("<h1><p>"+clientName+":您好</h1>");
         out.print("</BODY></HTML>");
         out.close();
