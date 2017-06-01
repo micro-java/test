@@ -6,12 +6,18 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>Servlet001</servlet-name>
-    <servlet-class>Servlet001</servlet-class>
+    <servlet-class>servlet.Servlet001</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>Servlet002</servlet-name>
-    <servlet-class>SimpleServlet01</servlet-class>
+    <servlet-class>servlet.SimpleServlet01</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Servlet003</servlet-name>
+    <servlet-class>servlet.Servlet001</servlet-class>
+  </servlet>
+
+
 
   <servlet-mapping>
     <servlet-name>Servlet001</servlet-name>
@@ -21,6 +27,11 @@
     <servlet-name>Servlet002</servlet-name>
     <url-pattern>/test02</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet003</servlet-name>
+    <url-pattern>/test03</url-pattern>
+  </servlet-mapping>
+
 
 
 </web-app>

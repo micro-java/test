@@ -1,3 +1,5 @@
+package servlet;
+
 import java.io.*;
 
 /**
@@ -16,7 +18,7 @@ public class Servlet001 extends javax.servlet.http.HttpServlet {
             clientName="my friend";
         }
         PrintWriter out=null;
-        String title= "Servlet001";
+        String title= "servlet.Servlet001";
         String heading1="HelloServlet的doGet方法的输出:";
 
         response.setContentType("text/html;charset=GB2312");
