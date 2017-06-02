@@ -14,7 +14,7 @@
   </servlet>
   <servlet>
     <servlet-name>Servlet003</servlet-name>
-    <servlet-class>servlet.Servlet001</servlet-class>
+    <servlet-class>servlet.Servlet003</servlet-class>
   </servlet>
 
 

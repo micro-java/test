@@ -48,7 +48,10 @@ public class Servlet001 extends javax.servlet.http.HttpServlet {
         out.print("</HEAD><BODY>");
         out.print(heading1);
         out.println("<h1><p>"+clientName+":您好</h1>");
-        out.print("<h2><p>"+getDatabase(Integer.parseInt(userID))+"</h2>");
+        if(userID!=null){
+            out.print("<h2><p>"+getDatabase(Integer.parseInt(userID))+"</h2>");
+        }
+
         out.print("</BODY></HTML>");
         out.close();
     }

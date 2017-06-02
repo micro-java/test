@@ -28,7 +28,7 @@ public class SimpleServlet01 implements Servlet {
         System.out.println("begin service");
         String className=req.getParameter("className");
         String shutDown=req.getParameter("shutdown");
-        String userData=req.getParameter("userData");
+        String userData=req.getParameter("userID");
 
         PrintWriter out=res.getWriter();
 
@@ -41,7 +41,10 @@ public class SimpleServlet01 implements Servlet {
 
         out.println(className+" :hello begin");
         out.println("shutDown: "+shutDown);
-        out.println("userData:"+getDatabase(Integer.parseInt(userData)));
+        if(userData!=null){
+            out.println("userData:"+getDatabase(Integer.parseInt(userData)));
+        }
+
 
     }
     public void destroy(){
