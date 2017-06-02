@@ -17,6 +17,8 @@ public class Servlet003 extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String className=request.getParameter("className");
+
         response.setContentType("image/jpeg");
 
         response.setHeader("pragma","no-cache");

@@ -20,7 +20,7 @@ public class User {
     }
     public String getNote(){
 
-        return note.replaceAll("\n","\t");
+        return note;
     }
     public void setId(int id){
         this.id=id;
@@ -36,6 +36,6 @@ public class User {
     }
     @Override
     public String toString(){
-        return "User [id=" + id + ", name=" + name + ", phone=" + phone +", note=" + note.replaceAll("\\n+"," ") + "]";
+        return "User [id=" + id + ", name=" + name + ", phone=" + phone +", note=" + note.replaceAll("\\n+"," ") + "]".replaceAll("\\W+"," ");
     }
 }

@@ -22,7 +22,6 @@ public class SimpleServlet01 implements Servlet {
         System.out.println("init");
 
 
-
     }
 
     public void service(ServletRequest req, ServletResponse res)throws ServletException, IOException{
@@ -56,13 +55,14 @@ public class SimpleServlet01 implements Servlet {
     public String getServletInfo(){
         return null;
     }
-    public User getDatabase(int num)throws IOException{
-
+    public static User getDatabase(int num)throws IOException{
         InputStream inputStream= Resources.getResourceAsStream("MybatisConf.xml");
         SqlSessionFactory sessionFactory=new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session=sessionFactory.openSession();
+
         String statment="richard.mapping.MybatisMapper.getUserOne";
         User user=session.selectOne(statment,num);
         return user;
     }
+
 }
