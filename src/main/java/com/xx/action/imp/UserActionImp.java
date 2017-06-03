@@ -14,12 +14,17 @@ import java.util.Map;
  */
 public class UserActionImp implements UserAction {
     private UserService userServiceImp=new UserServiceImp();
+
     private UserDao userDaoImp=new UserDaoImp();
+
     public User login(Map<String, Object> stringObjectMap) {
         //
         User u=userServiceImp.findUser(stringObjectMap);
         User user=userDaoImp.addUser(stringObjectMap);
 
+        return null;
+    }
+    public User getUserInfo(){
         return null;
     }
 }

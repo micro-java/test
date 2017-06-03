@@ -58,6 +58,7 @@ public class SimpleServlet01 implements Servlet {
     public String getServletInfo(){
         return null;
     }
+
     public static User getDatabase(int num)throws IOException{
         InputStream inputStream= Resources.getResourceAsStream("MybatisConf.xml");
         SqlSessionFactory sessionFactory=new SqlSessionFactoryBuilder().build(inputStream);

@@ -37,6 +37,6 @@ public class User {
     @Override
     public String toString(){
        // return  "hello world";
-        return ("User [id=" + id + ", name=" + name + ", phone=" + phone +", note=" + note.replaceAll("\\n+"," ") + "]").replaceAll("\\W+"," ");
+        return "User [id=" + id + ", name=" + name + ", phone=" + phone +", note=" + note.replaceAll("\\n+"," ") + "]";
     }
 }

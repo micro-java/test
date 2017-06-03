@@ -1,7 +1,7 @@
 package com.xx.action;
 
 import com.xx.bean.User;
-import com.xx.bean.XX;
+
 
 import java.util.Map;
 
@@ -10,6 +10,7 @@ import java.util.Map;
  */
 public  interface UserAction {
     //login
-    public User login(Map<String,Object> stringObjectMap);
+     User login(Map<String,Object> stringObjectMap);
+
 
 }
