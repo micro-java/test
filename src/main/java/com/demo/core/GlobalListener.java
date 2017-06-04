@@ -32,8 +32,8 @@ public class GlobalListener  implements ServletContextListener {
         try {
 //            DbUtil.init();
 
-            ApplicationContext context=new ClassPathXmlApplicationContext(new String[]{"beans.xml"});
-            SpringContextUtil.setContext(context);
+//            ApplicationContext context=new ClassPathXmlApplicationContext(new String[]{"beans.xml"});
+//            SpringContextUtil.setContext(context);
 
             ResourceVerifyUtil.init();
         } catch (Exception e) {
