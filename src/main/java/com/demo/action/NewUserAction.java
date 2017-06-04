@@ -7,4 +7,7 @@ import java.util.Map;
  */
 public interface NewUserAction {
     public String login(Map<String,Object> obj);
+    public String register(Map<String,Object> obj);
+    public String setpassword(Map<String,Object> obj);
+    public String showAllUsers(Map<String,Object> obj);
 }

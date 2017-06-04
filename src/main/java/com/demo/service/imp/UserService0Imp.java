@@ -50,19 +50,14 @@ public class UserService0Imp implements UserService0 {
         }
     }
     public int setpassword(Map<String, Object> params) {
-        ResourceVerifyUtil.commonVaild(params,new String[]{ConstantCode.USERNAME,ConstantCode.CURPASSWORD,ConstantCode.PASSWORD,ConstantCode.CONPASSWORD});
-        String curpassword= Tools.md5(params.get(ConstantCode.CURPASSWORD).toString());
-        params.put("curpassword", Tools.md5(params.get(ConstantCode.CURPASSWORD).toString()));
-        Map<String,Object> user1=userDao0Imp.findUser(params);
-
-
+        ResourceVerifyUtil.commonVaild(params,new String[]{ConstantCode.USERNAME,ConstantCode.PASSWORD,ConstantCode.CONPASSWORD});
 
         if(!(params.get(ConstantCode.PASSWORD).toString()).equals(params.get(ConstantCode.CONPASSWORD).toString())){
             return 0;
         }else {
 //            String userName=params.get(ConstantCode.USERNAME).toString();
-//            String password= Tools.md5(params.get(ConstantCode.PASSWORD).toString());
-//            params.put("password", Tools.md5(params.get(ConstantCode.PASSWORD).toString()));
+            String password= Tools.md5(params.get(ConstantCode.PASSWORD).toString());
+            params.put("password", Tools.md5(params.get(ConstantCode.PASSWORD).toString()));
             int user=userDao0Imp.setpassword(params);
             return user;
         }

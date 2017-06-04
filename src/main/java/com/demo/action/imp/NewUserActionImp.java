@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,5 +28,27 @@ public class NewUserActionImp implements NewUserAction {
         Object o=userService0Imp.login(obj);
         return JSON.toJSONString(o);
     }
+    @ResponseBody
+    @RequestMapping(path = "/register.htm",method = RequestMethod.GET)
+    public String register(@RequestParam Map<String,Object> obj){
+        Object o=userService0Imp.register(obj);
+        return JSON.toJSONString(0);
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "/setpassword.htm",method = RequestMethod.GET)
+    public String setpassword(@RequestParam Map<String, Object> obj) {
+        int o=userService0Imp.setpassword(obj);
+        return JSON.toJSONString(o);
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "showAllUsers.htm",method = RequestMethod.GET)
+    public String showAllUsers(@RequestParam Map<String,Object> obj){
+        Object list=userService0Imp.showAllUsers(obj);
+        return JSON.toJSONString(list);
+    }
+
+
 
 }
