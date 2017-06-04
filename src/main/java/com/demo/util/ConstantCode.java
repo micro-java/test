@@ -6,6 +6,7 @@ package com.demo.util;
 public class ConstantCode {
     public final static String USERNAME="userName";
     public final static String PASSWORD="password";
+    public final static String CURPASSWORD="curpassword";
     public final static String CONPASSWORD="conpassword";
 
 }

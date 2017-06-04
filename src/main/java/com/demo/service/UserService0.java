@@ -1,5 +1,6 @@
 package com.demo.service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -7,5 +8,7 @@ import java.util.Map;
  */
 public interface UserService0 {
     public Map<String,Object> login(Map<String,Object> params);
-    public boolean register(Map<String,Object> params);
+    public int register(Map<String,Object> params);
+    public int setpassword(Map<String,Object> params);
+    public List<String> showAllUsers(Map<String,Object> params);
 }

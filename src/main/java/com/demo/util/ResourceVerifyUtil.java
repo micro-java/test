@@ -23,7 +23,7 @@ public class ResourceVerifyUtil {
             //读取配置文件
             try {
                 if (fieldRegular == null) fieldRegular = new Properties();
-                InputStream inputStream = ClassLoader.getSystemResourceAsStream("regularfields.properties");
+                InputStream inputStream = ResourceVerifyUtil.class.getClassLoader().getResourceAsStream("regularfields.properties");
                 if (inputStream != null)
                     fieldRegular.load(inputStream);
             } catch (Exception e) {

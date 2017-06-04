@@ -23,7 +23,27 @@ public class Tools {
         return null;
     }
 
-    public static void main(String[] args) throws Exception{
-        System.out.println(md5("test"));
+//    public static void main(String[] args) throws Exception{
+//        System.out.println(md5("test"));
+//    }
+
+    public static void setWebPath(String webPath) {
+        Tools.webPath = webPath;
+    }
+    private static String webPath=null;
+    public static String getWebPath(){
+        return  webPath;
+    }
+    private static String mainHtml="";
+
+    public static String getMainHtml() {
+        return mainHtml;
+    }
+
+    public static void setMainHtml(String mainHtml) {
+        Tools.mainHtml = mainHtml;
+    }
+    public static void main(String[] args) {
+        System.out.println("$message".replaceAll("\\$message","test"));
     }
 }

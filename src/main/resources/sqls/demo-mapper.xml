@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo.dao.UserDao0">
+
+    <select id="findUser" parameterType="java.util.HashMap"
+            resultType="java.util.HashMap">
+        select * from user where name=#{userName} and pass=#{password}
+    </select>
+    <select id="showAllUsers" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT name from user
+    </select>
+
+
+    <insert id="registerUser" parameterType="java.util.HashMap" >
+        insert into user (name,pass)
+        values (#{userName},#{password})
+    </insert>
+
+    <update id="setpassword" parameterType="java.util.HashMap" >
+        UPDATE user SET pass=#{password}
+        WHERE name=#{userName}
+    </update>
+
+</mapper>

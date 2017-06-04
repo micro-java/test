@@ -1,18 +1,24 @@
 package com.demo.service.imp;
 
 import com.demo.dao.UserDao0;
-import com.demo.dao.imp.UserDaoImp;
+//import com.demo.dao.imp.UserDaoImp;
 import com.demo.service.UserService0;
 import com.demo.util.ConstantCode;
+import com.demo.util.ResourceVerifyUtil;
 import com.demo.util.Tools;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by richard on 2017/6/4.
  */
+@Service
 public class UserService0Imp implements UserService0 {
-    private UserDao0 userDao0Imp=new UserDaoImp();
+    @Autowired
+    private UserDao0 userDao0Imp;
 
     /***
      * 参数处理,返回结果处理
@@ -20,40 +26,51 @@ public class UserService0Imp implements UserService0 {
      * @return
      */
     public Map<String, Object> login(Map<String, Object> params) {
-        //userName,password 都是符合规范的数据
-        if(!params.containsKey(ConstantCode.USERNAME)||
-                !params.containsKey(ConstantCode.PASSWORD) ||
-                params.get(ConstantCode.PASSWORD)==null||
-                params.get(ConstantCode.USERNAME)==null){
-            return null;
-        }
-        String userName=params.get(ConstantCode.USERNAME).toString();
+        ResourceVerifyUtil.commonVaild(params,new String[]{ConstantCode.USERNAME,ConstantCode.PASSWORD});
+//        String userName=params.get(ConstantCode.USERNAME).toString();
         String password= Tools.md5(params.get(ConstantCode.PASSWORD).toString());
-        Map<String,Object> user=userDao0Imp.findUser(userName,password);
+        params.put("password", Tools.md5(params.get(ConstantCode.PASSWORD).toString()));
+        Map<String,Object> user=userDao0Imp.findUser(params);
         //脱敏处理
 
         return user;
     }
 
-    public boolean register(Map<String, Object> params) {
+    public int register(Map<String, Object> params) {
+        ResourceVerifyUtil.commonVaild(params,new String[]{ConstantCode.USERNAME,ConstantCode.PASSWORD,ConstantCode.CONPASSWORD});
 
-        if(!params.containsKey(ConstantCode.USERNAME)||
-                !params.containsKey(ConstantCode.PASSWORD) ||
-                !params.containsKey(ConstantCode.CONPASSWORD) ||
-                params.get(ConstantCode.PASSWORD)==null||
-                params.get(ConstantCode.USERNAME)==null||
-                params.get(ConstantCode.CONPASSWORD)==null){
-
-            return false;
-        }
         if(!(params.get(ConstantCode.PASSWORD).toString()).equals(params.get(ConstantCode.CONPASSWORD).toString())){
-            return false;
+            return 0;
         }else {
-            String userName=params.get(ConstantCode.USERNAME).toString();
+//            String userName=params.get(ConstantCode.USERNAME).toString();
             String password= Tools.md5(params.get(ConstantCode.PASSWORD).toString());
-            boolean user=userDao0Imp.registerUser(userName,password);
+            params.put("password", Tools.md5(params.get(ConstantCode.PASSWORD).toString()));
+            int user=userDao0Imp.registerUser(params);
             return user;
         }
+    }
+    public int setpassword(Map<String, Object> params) {
+        ResourceVerifyUtil.commonVaild(params,new String[]{ConstantCode.USERNAME,ConstantCode.CURPASSWORD,ConstantCode.PASSWORD,ConstantCode.CONPASSWORD});
+        String curpassword= Tools.md5(params.get(ConstantCode.CURPASSWORD).toString());
+        params.put("curpassword", Tools.md5(params.get(ConstantCode.CURPASSWORD).toString()));
+        Map<String,Object> user1=userDao0Imp.findUser(params);
+
+
+
+        if(!(params.get(ConstantCode.PASSWORD).toString()).equals(params.get(ConstantCode.CONPASSWORD).toString())){
+            return 0;
+        }else {
+//            String userName=params.get(ConstantCode.USERNAME).toString();
+//            String password= Tools.md5(params.get(ConstantCode.PASSWORD).toString());
+//            params.put("password", Tools.md5(params.get(ConstantCode.PASSWORD).toString()));
+            int user=userDao0Imp.setpassword(params);
+            return user;
+        }
+    }
+
+    public List<String> showAllUsers(Map<String,Object> params) {
+        List<String> user=userDao0Imp.showAllUsers();
+        return user;
     }
 
 
