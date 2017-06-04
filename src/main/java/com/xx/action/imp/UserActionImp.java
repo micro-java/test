@@ -2,6 +2,7 @@ package com.xx.action.imp;
 
 import com.xx.action.UserAction;
 import com.xx.bean.User;
+import com.xx.bean.UserInfo;
 import com.xx.dao.UserDao;
 import com.xx.dao.imp.UserDaoImp;
 import com.xx.service.UserService;
@@ -21,10 +22,14 @@ public class UserActionImp implements UserAction {
         //
         User u=userServiceImp.findUser(stringObjectMap);
         User user=userDaoImp.addUser(stringObjectMap);
+        try{
+            UserInfo userInfo=userDaoImp.getUserInfo(1);
+            System.out.println(userInfo);
+        }catch (Exception e){
+
+        }
 
         return null;
     }
-    public User getUserInfo(){
-        return null;
-    }
+
 }

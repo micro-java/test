@@ -4,33 +4,46 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <listener>
+    <listener-class>com.demo.core.GlobalListener</listener-class>
+  </listener>
   <servlet>
-    <servlet-name>Servlet001</servlet-name>
-    <servlet-class>servlet.Servlet001</servlet-class>
+    <servlet-name>UserAction</servlet-name>
+    <servlet-class>com.demo.action.UserAction</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>Servlet002</servlet-name>
-    <servlet-class>servlet.SimpleServlet01</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>Servlet003</servlet-name>
-    <servlet-class>servlet.Servlet003</servlet-class>
-  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserAction</servlet-name>
+    <url-pattern>/user/*</url-pattern>
+  </servlet-mapping>
+
+  <!--<servlet>-->
+    <!--<servlet-name>Servlet001</servlet-name>-->
+    <!--<servlet-class>servlet.Servlet001</servlet-class>-->
+  <!--</servlet>-->
+  <!--<servlet>-->
+    <!--<servlet-name>Servlet002</servlet-name>-->
+    <!--<servlet-class>servlet.SimpleServlet01</servlet-class>-->
+  <!--</servlet>-->
+  <!--<servlet>-->
+    <!--<servlet-name>Servlet003</servlet-name>-->
+    <!--<servlet-class>servlet.Servlet003</servlet-class>-->
+  <!--</servlet>-->
+  <!---->
 
 
-
-  <servlet-mapping>
-    <servlet-name>Servlet001</servlet-name>
-    <url-pattern>/test01</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Servlet002</servlet-name>
-    <url-pattern>/test02</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Servlet003</servlet-name>
-    <url-pattern>/test03</url-pattern>
-  </servlet-mapping>
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>Servlet001</servlet-name>-->
+    <!--<url-pattern>/test01</url-pattern>-->
+  <!--</servlet-mapping>-->
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>Servlet002</servlet-name>-->
+    <!--<url-pattern>/test02</url-pattern>-->
+  <!--</servlet-mapping>-->
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>Servlet003</servlet-name>-->
+    <!--<url-pattern>/test03</url-pattern>-->
+  <!--</servlet-mapping>-->
 
 
 
